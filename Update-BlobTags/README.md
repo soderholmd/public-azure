@@ -40,6 +40,9 @@ $logfile = ".\log.txt"
 ```
 
 **Tag names**
+
+These should match the ones you've added to the table. See the **Notes** section below for how to add more.
+
 ```
 $tag1 = "FileName"
 $tag2 = "ReferenceNumber"
