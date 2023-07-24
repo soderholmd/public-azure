@@ -15,15 +15,15 @@ I used table storage as a PoC, but it could equally be replaced by a CSV or any 
 
 1. Create a storage account with a blob container and a table
 2. Decide what tags you want (up to 10, each up to 255 characters)
-3. In the table, create the records you want. (You can use [Storage Explorer](https://azure.microsoft.com/en-gb/products/storage/storage-explorer), or find a way to import CSV, etc.) For example, you might want the fields `FileName`, `ReferenceNumber`, `CreationDate`, `Classification`, `FileOwner`. You can use `FileName` as the row key as it will be unique within a blob container, or you can have `FileName` as a separate field and use a numerical value as the row key. Note that all values must be of the `string` type, as index tags do not support other types
+3. In the table, create the records you want. (You can use [Storage Explorer](https://azure.microsoft.com/en-gb/products/storage/storage-explorer), or find a way to import CSV, etc.) For example, you might want the fields `FileName`, `ReferenceNumber`, `CreationDate`, `Classification`, `FileOwner`. At the moment, it uses the blob file name as the row key (as blob names are unique), as well as in the `FileName` column. You could tweak that to have a numerical ID in the row key if you want. Note that all values must be of the `string` type, as index tags do not support other types
 
 Example table:
 
 |PartitionKey|RowKey|FileName|ReferenceNumber|CreationDate|Classification|FileOwner|
 |---|---|---|---|---|---|---|
-|partition1|1|file1.zip|ABC123|2023-01-01|Public|nromanoff|
-|partition1|2|file2.zip|BCD234|2023-02-02|Secret|tstark|
-|partition1|3|file3.zip|CDE345|2023-03-03|Superdupersecret|bbanner|
+|partition1|file1.zip|file1.zip|ABC123|2023-01-01|Public|nromanoff|
+|partition1|file2.zip|file2.zip|BCD234|2023-02-02|Secret|tstark|
+|partition1|file3.zip|file3.zip|CDE345|2023-03-03|Superdupersecret|bbanner|
 
 _Note: Azure will automatically insert a timestamp on each record, which can be ignored unless you want to use it for something_
 
