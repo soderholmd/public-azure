@@ -30,7 +30,7 @@ Example table:
 |---|---|---|---|---|---|---|
 |partition1|file1.zip|file1.zip|ABC123|2023-01-01|Public|nromanoff|
 |partition1|file2.zip|file2.zip|BCD234|2023-02-02|Secret|tstark|
-|partition1|file3.zip|file3.zip|CDE345|2023-03-03|Superdupersecret|bbanner|
+|partition1|file3.zip|file3.zip|CDE345|2023-03-03|Super-duper Secret|bbanner|
 
 _Note: Azure will automatically insert a timestamp on each record, which can be ignored unless you want to use it for something_
 
