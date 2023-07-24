@@ -9,6 +9,13 @@ With this script, you can store all of the index tags for a specific blob in an 
 The script connects to the specified subscription and storage account, retrieves a list of blobs in the specified container, and checks if each blob has tags. 
 If the blob has tags, the script prompts the user to overwrite them. If the user chooses to overwrite the tags, the script updates the tags of the blob with data from the Azure Table. If the blob does not have tags, the script writes new tags to the blob.
 
+It will detect:
+
+- Blobs with no tags
+- Blobs for which a corresponding record does not exist in the index table
+- Records in the index table for which a blob does not exist in the container
+- Blobs whose tags do not match the values in the index table
+
 I used table storage as a PoC, but it could equally be replaced by a CSV or any other convenient format.
 
 ## How to use it
