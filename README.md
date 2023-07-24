@@ -24,6 +24,4 @@ This PowerShell script is a way to write index tags to Azure blobs after reading
 
 ## Owner
 
-(c) 2023
-Daniel Söderholm
-Microsoft UK
+(c) 2023 Daniel Söderholm @ Microsoft UK
