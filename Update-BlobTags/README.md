@@ -66,6 +66,7 @@ If you specify neither option (normal mode), it will tell you if a mismatch is f
 - It was originally created for a specific use case. I've tried to generalise it a bit but I'm not sure how useful it is to anyone else. Mostly publishing as a reminder as I couldn't find anything else that did the same job
 - I've tested it in a few different scenarios and it seems to work the way I want it to, but please do your own tests and treat as sample code, not ready for production use
 - You will need appropriate permissions on both the blob container and the table storage
+- Tag values are case-sensitive, so `file1.zip` will NOT match `File1.zip` or `FILE1.ZIP`
 
 ### Todo
 
