@@ -8,4 +8,4 @@ This spreadsheet is intended to help with that calculation. You enter how many u
 
 The bandwidth costs may not be 100% correct unless you can really delve into how much is ingress and how much is egress, but should give you a rough order of magnitude indication of what to expect.
 
-As usual this calculator comes with no guarantee of accuracy and should be validated with your own calculations. It's just a shortcut to help use the Azure pricing calculator.
+As usual this calculator comes with no guarantees or official support, and should be validated with your own calculations. It's just a shortcut to help use the Azure pricing calculator.
