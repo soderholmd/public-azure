@@ -22,6 +22,10 @@ This Excel spreadsheet helps you figure out how to size and price an Azure VPN g
 
 This PowerShell script is a way to write index tags to Azure blobs after reading them from a table.
 
+### OpenAI text summariser
+
+Uses Azure OpenAI text services to summarise a text, written in Python.
+
 ## Owner
 
-(c) 2023 Daniel Söderholm @ Microsoft UK
+(c) 2024 Daniel Söderholm @ Microsoft UK
