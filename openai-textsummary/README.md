@@ -19,3 +19,5 @@ It defaults to GPT-3.5 (or whatever you save as `AZURE_OAI_DEPLOYMENT`), but has
 The script also reads the Azure OpenAI endpoint and key from the `.env` file.
 
 You will need to create the necessary OpenAI service in Azure with GPT-3.5 and/or GPT-4 deployments, and add the environment varibales to the `.env` file.
+
+Tweak the system prompt (in `system_message.txt`) to see what works best, or change it to do something else like give holiday tips or write poetry.
