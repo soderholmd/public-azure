@@ -96,6 +96,7 @@ def main():
         # Print the number of tokens used if --stats flag is included
         if args.stats:
             print("====================================")
+            print("Statistics:")
             print(f"Prompt tokens: {response.usage.prompt_tokens}")
             print(f"Completion tokens: {response.usage.completion_tokens}")
             print(f"Total tokens: {response.usage.total_tokens}")
