@@ -1,6 +1,7 @@
 '''
 Azure OpenAI text summariser
 Daniel Soderholm 2024
+Version 1.1 - 2024-04-17
 
 The code is a Python script that uses the Azure OpenAI API to generate text summaries. 
 It takes command line arguments to specify the input text, either from a file (TXT/DOCX/PDF) or a URL, and allows the user to interactively enter a prompt if no file or URL is provided. 
@@ -73,9 +74,9 @@ def main():
                 with open(args.file, 'r') as file:
                     input_text = file.read()
         elif args.url:
-            response = requests.get(args.url)
-            response.raise_for_status()  # Raise an exception if the GET request failed
-            input_text = response.text
+            webcontent = requests.get(args.url)
+            webcontent.raise_for_status()  # Raise an exception if the GET request failed
+            input_text = webcontent.text
         else:
             input_text = input("Enter the prompt ('quit' to exit): ")
             if len(input_text) == 0:
