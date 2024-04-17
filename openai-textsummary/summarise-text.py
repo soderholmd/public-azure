@@ -109,17 +109,41 @@ def main():
         if args.stats:
             print("====================================")
             print("Statistics:")
+            print("------------------------------------")
+
+            # Print the token usage
             print(f"Prompt tokens: {response.usage.prompt_tokens}")
             print(f"Completion tokens: {response.usage.completion_tokens}")
             print(f"Total tokens: {response.usage.total_tokens}")
+            print("------------------------------------")
+
+            # Calculate the total word count
+            input_word_count = len(input_text.split())
+            system_word_count = len(system_message.split())
+            total_word_count = input_word_count + system_word_count
+            print(f"Prompt word count: {total_word_count}")
+            response_word_count = len(generated_text.split())
+            print(f"Response word count: {response_word_count}")
+            print(f"Prompt tokens per word: {response.usage.prompt_tokens / total_word_count:.1f}")
+            print(f"Completion tokens per word: {response.usage.completion_tokens / response_word_count:.1f}")
+            print("------------------------------------")
+
             # Calculate the cost of the transaction
             # Make sure the costs here are correct depending on which model you are using
             if args.gpt4:
-                cost_per_token = 0.06 / 1000
+                cost_per_input_token = 0.06 / 1000
+                cost_per_output_token = 0.12 / 1000
             else:
-                cost_per_token = 0.0035 / 1000
-            total_cost = response.usage.total_tokens * cost_per_token
-            print(f"Total cost: ${total_cost:.6f}")
+                cost_per_input_token = 0.003 / 1000
+                cost_per_output_token = 0.004 / 1000
+            prompt_token_cost = response.usage.prompt_tokens * cost_per_input_token
+            completion_token_cost = response.usage.completion_tokens * cost_per_output_token
+            total_cost = prompt_token_cost + completion_token_cost
+            print(f"Prompt token cost: ${prompt_token_cost:.3f}")
+            print(f"Completion token cost: ${completion_token_cost:.3f}")
+            print(f"Total cost: ${total_cost:.3f}")
+            print("------------------------------------")
+
             # Stop the timer
             elapsed_time = time.time() - start_time
             print(f"Request took {round(elapsed_time, 2)} seconds.")
