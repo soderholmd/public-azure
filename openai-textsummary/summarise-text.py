@@ -91,7 +91,7 @@ def main():
         response = client.chat.completions.create(
             model=azure_oai_deployment,
             temperature=0.7,
-            max_tokens=400,
+            max_tokens=500,
             messages=[
                 {"role": "system", "content": system_message},
                 {"role": "user", "content": input_text}
@@ -113,7 +113,11 @@ def main():
             print(f"Completion tokens: {response.usage.completion_tokens}")
             print(f"Total tokens: {response.usage.total_tokens}")
             # Calculate the cost of the transaction
-            cost_per_token = 0.06 / 1000
+            # Make sure the costs here are correct depending on which model you are using
+            if args.gpt4:
+                cost_per_token = 0.06 / 1000
+            else:
+                cost_per_token = 0.0035 / 1000
             total_cost = response.usage.total_tokens * cost_per_token
             print(f"Total cost: ${total_cost:.6f}")
             # Stop the timer
